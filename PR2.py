@@ -29,6 +29,7 @@ class TemperatureMeasurement(Measurement):
 class PressureMeasurement(Measurement):
     """Класс для измерения давления."""
     def __init__(self, date, place, pressure):
+        
         super().__init__(date, place)
         self.pressure = float(pressure)
 
