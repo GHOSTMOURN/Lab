@@ -150,7 +150,6 @@ def create_interface(measurements, filename):
     tk.Label(frame, text="Значение 2:").grid(row=2, column=2)
     entry_value2 = tk.Entry(frame)
     entry_value2.grid(row=2, column=3)
-
     # Кнопки
     tk.Button(frame, text="Добавить",
               command=lambda: add_measurement(tree, measurements, filename,
