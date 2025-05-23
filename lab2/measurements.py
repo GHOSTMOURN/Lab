@@ -15,12 +15,12 @@ class TemperatureMeasurement(Measurement):
         super().__init__(date, place)
         self.temperature = float(temperature)
         self.humidity = float(humidity)
-
+        
     def __str__(self):
         return (f"{super().__str__()}, "
                 f"Температура: {self.temperature:.2f}°C, "
                 f"Влажность: {self.humidity:.2f}%")
-
+        
 class PressureMeasurement(Measurement):
     """Класс для измерения давления."""
     def __init__(self, date, place, pressure):
@@ -29,3 +29,14 @@ class PressureMeasurement(Measurement):
 
     def __str__(self):
         return f"{super().__str__()}, Давление: {self.pressure:.2f} мм рт. ст."
+
+class fu(TemperatureMeasurement):
+    @staticmethod
+    def average_temperature(measurments):
+        temps = [
+            m.temperature for m in measurments
+            if isinstance(m, TemperatureMeasurement)
+        ]
+        if not temps:
+            return 0.0
+        return sum(temps) / len(temps)
